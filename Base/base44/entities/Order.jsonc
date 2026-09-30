@@ -1,0 +1,44 @@
+{
+  "name": "Order",
+  "type": "object",
+  "properties": {
+    "table_number": {
+      "type": "string"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "qty": {
+            "type": "number"
+          },
+          "price": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pendiente",
+        "en_preparacion",
+        "servido",
+        "pagado"
+      ],
+      "default": "pendiente"
+    },
+    "total": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "table_number",
+    "items",
+    "total"
+  ]
+}
