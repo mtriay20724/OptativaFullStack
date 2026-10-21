@@ -1,0 +1,14 @@
+{
+    "titulo": "Super Mario",
+    "año": 1999,
+    "Multijugador": true,
+    "Plataformas": ["Switch", "PS5", "Wii"]
+}
+
+{
+    "marca": "Porche",
+    "modelo": "911",
+    "año_Fabrifacion": 2024,
+    "elecrico": false,
+    "Extras": ["920 caballos", "18 cilindros"],
+}

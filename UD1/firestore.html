@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Ejemplo Firebase</h1>
+
+    <div id="lista">
+        
+    </div>
+
+    <script type="module">
+        import {initializeApp} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import {getFirestore, collection, addDoc, getDocs} from 
+        "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBYWV9xnGbGSgm0Rfm4RggTDmLkBr-qWyE",
+            authDomain: "booklist-fd564.firebaseapp.com",
+            projectId: "booklist-fd564",
+            storageBucket: "booklist-fd564.firebasestorage.app",
+            messagingSenderId: "280479136724",
+            appId: "1:280479136724:web:cfa063e0bdb0b539ce3441"
+        };
+
+        // Initialize Firebase
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        const misDatos = await getDocs(collection(db, "Books"));
+
+        let listaDatos = misDatos.docs;
+        let divPagina = document.getElementById("lista");
+        for(let doc of listaDatos){
+            let documento = doc.data();
+
+            divPagina.innerHTML += "<div> <h1>" + documento.titulo + "</h1> - <h2>" + documento.autor+ "</h2> <img src=" +documento.portada+ ">" + "</div>";
+
+        }
+    </script>
+</body>
+</html>
